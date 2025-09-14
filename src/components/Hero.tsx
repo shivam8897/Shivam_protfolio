@@ -102,8 +102,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-white to-gray-100 border-4 border-white shadow-2xl p-1 float-animation overflow-hidden">
                 <div className="w-full h-full rounded-full overflow-hidden shadow-inner relative bg-gray-100">
-                  <Image
-                    // src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAABAUDBgcCAQj/xAA0EAACAQMCBAQEBAYDAAAAAAABAgMABBEFIQYSMUETIlFhBzJxgRQjkaEVQrHB0fAzUuH/xAAZAQADAQEBAAAAAAAAAAAAAAABAgMABAX/xAAhEQACAgICAgMBAAAAAAAAAAAAAQIRAyESMUFRBBMiYf/aAAwDAQACEQMRAD8A9vvELxCsOHbVri8kzJIcRwRjLyH0A/vYVzTiPxc4k1qVo7W8+jWzHAjt2Kgj3b8x/wDKuaeJXGN9xVqzXN5IVhQlYYAflQf5PU1Vp5WkYsxJJOST1NdEcaiqOaWaUnaOh8Q/ELiDVGaOO8+jWzHAjt2Kgj3b8x/8qhsOPOKNKkWS2v5SynKrOBKpHsWyKzqkqKKRRRRQAUUUUAFFFFABRRRQB//Z"
+                  <img
                     src="/shiv.jpg"
                     alt="Shivam Dubey - Senior Data Engineer"
                     className="w-full h-full object-cover object-center"
