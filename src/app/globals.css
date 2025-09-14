@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-primary-800;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-primary-700;
+  }
+  
+  .glass-effect {
+    @apply bg-white border border-primary-200 shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-700 hover:bg-primary-800 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border-2 border-primary-700 text-primary-700 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-700 hover:text-white;
+  }
+  
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Particle animation */
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-100px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.particle {
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #334155, #475569, #64748b, #334155);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
