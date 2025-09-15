@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import {
   ChevronDown,
   Mail,
@@ -11,7 +10,7 @@ import {
   Code,
   Send,
 } from "lucide-react";
-import shivImage from "../../public/shiv.jpg";
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const fullText =
@@ -38,7 +37,6 @@ const Hero = () => {
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
-        {/* Animated geometric shapes */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div
           className="absolute bottom-20 right-10 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl animate-pulse"
@@ -49,19 +47,16 @@ const Hero = () => {
           style={{ animationDelay: "4s" }}
         ></div>
 
-        {/* Grid pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.3'%3E%3Cpath d='M0 0h100v100H0z'/%3E%3Cpath d='M0 20h100M0 40h100M0 60h100M0 80h100M20 0v100M40 0v100M60 0v100M80 0v100'/%3E%3C/g%3E%3C/svg%3E")`,
-              //  backgroundImage: `url('/shiv.jpg')`,
               backgroundSize: "100px 100px",
             }}
           />
         </div>
 
-        {/* Floating particles */}
         <div className="absolute inset-0">
           {[...Array(12)].map((_, i) => (
             <div
@@ -77,7 +72,6 @@ const Hero = () => {
           ))}
         </div>
 
-        {/* Diagonal lines */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full transform rotate-12">
             {[...Array(8)].map((_, i) => (
@@ -126,27 +120,13 @@ const Hero = () => {
 
           {/* Main Content */}
           <div className="animate-fade-in-up">
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl"
-              style={{
-                textShadow:
-                  "0 4px 8px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3)",
-              }}
-            >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               Shivam Dubey
             </h1>
-
-            <h2
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-8 drop-shadow-xl"
-              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
-            >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-8 drop-shadow-xl">
               Senior Data Engineer
             </h2>
-
-            <p
-              className="text-lg md:text-xl text-white mb-12 max-w-4xl mx-auto leading-relaxed min-h-[3rem] drop-shadow-lg"
-              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.4)" }}
-            >
+            <p className="text-lg md:text-xl text-white mb-12 max-w-4xl mx-auto leading-relaxed min-h-[3rem] drop-shadow-lg">
               {displayText}
               <span className="animate-pulse">|</span>
             </p>
@@ -154,44 +134,26 @@ const Hero = () => {
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
               <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div
-                  className="text-3xl font-bold text-white drop-shadow-lg"
-                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-3xl font-bold text-white drop-shadow-lg">
                   50%
                 </div>
-                <div
-                  className="text-white font-medium drop-shadow-lg"
-                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-white font-medium drop-shadow-lg">
                   Faster Queries
                 </div>
               </div>
               <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div
-                  className="text-3xl font-bold text-white drop-shadow-lg"
-                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-3xl font-bold text-white drop-shadow-lg">
                   30%
                 </div>
-                <div
-                  className="text-white font-medium drop-shadow-lg"
-                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-white font-medium drop-shadow-lg">
                   System Efficiency
                 </div>
               </div>
               <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div
-                  className="text-3xl font-bold text-white drop-shadow-lg"
-                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-3xl font-bold text-white drop-shadow-lg">
                   4+
                 </div>
-                <div
-                  className="text-white font-medium drop-shadow-lg"
-                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
-                >
+                <div className="text-white font-medium drop-shadow-lg">
                   Years Experience
                 </div>
               </div>
