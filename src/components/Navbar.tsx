@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { DarkModeToggle } from './DarkModeToggle'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -21,16 +22,19 @@ const Navbar = () => {
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
+    { href: '#testimonials', label: 'Testimonials' },
     { href: '#contact', label: 'Contact' },
   ]
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg py-4' : 'bg-white/95 backdrop-blur-sm shadow-md py-6'
+      isScrolled 
+        ? 'bg-white dark:bg-gray-900 shadow-lg dark:shadow-gray-800/50 py-4' 
+        : 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md dark:shadow-gray-800/50 py-6'
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary-800">
+          <div className="text-2xl font-bold text-primary-800 dark:text-white">
             Shivam Dubey
           </div>
 
@@ -40,31 +44,34 @@ const Navbar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-primary-700 hover:text-accent-600 font-medium transition-colors duration-300 relative group"
+                className="text-primary-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 font-medium transition-colors duration-300 relative group"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-600 dark:bg-accent-400 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-primary-700"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right side: Theme Toggle + Mobile Menu Button */}
+          <div className="flex items-center gap-4">
+            <DarkModeToggle />
+            <button
+              className="md:hidden p-2 text-primary-700 dark:text-gray-300"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 bg-white border border-primary-200 rounded-2xl p-6 shadow-lg">
+          <div className="md:hidden mt-4 bg-white dark:bg-gray-800 border border-primary-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-3 text-primary-700 hover:text-accent-600 font-medium transition-colors duration-300"
+                className="block py-3 text-primary-700 dark:text-gray-300 hover:text-accent-600 dark:hover:text-accent-400 font-medium transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

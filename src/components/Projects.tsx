@@ -37,13 +37,13 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section-padding bg-gray-50">
+    <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Delivering impactful solutions across banking and telecommunications
           </p>
         </div>
@@ -52,7 +52,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="glass-effect rounded-3xl overflow-hidden card-hover animate-fade-in-up"
+              className="glass-effect dark:bg-gray-800/50 dark:backdrop-blur-xl dark:border-gray-700 rounded-3xl overflow-hidden card-hover animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Header with gradient */}
@@ -60,12 +60,12 @@ const Projects = () => {
               
               <div className="p-8">
                 {/* Title */}
-                <h3 className="text-xl font-bold text-slate-800 mb-4 leading-tight">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 leading-tight">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -74,9 +74,9 @@ const Projects = () => {
                   {project.metrics.map((metric, metricIndex) => (
                     <div
                       key={metricIndex}
-                      className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl p-3 text-center"
+                      className="bg-gradient-to-r from-slate-50 dark:from-gray-700 to-blue-50 dark:to-gray-600 rounded-xl p-3 text-center"
                     >
-                      <div className="flex items-center justify-center gap-1 text-primary-600 mb-1">
+                      <div className="flex items-center justify-center gap-1 text-primary-600 dark:text-accent-400 mb-1">
                         <TrendingUp size={16} />
                         <span className="text-lg font-bold">{metric.value}</span>
                       </div>

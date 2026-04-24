@@ -37,13 +37,13 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="section-padding bg-white">
+    <section id="skills" className="section-padding bg-white dark:bg-gray-950">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
             Technical Skills
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Comprehensive expertise across the modern data engineering stack
           </p>
         </div>
@@ -52,7 +52,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="glass-effect rounded-3xl p-8 card-hover animate-fade-in-up"
+              className="glass-effect dark:bg-gray-800/50 dark:backdrop-blur-xl dark:border-gray-700 rounded-3xl p-8 card-hover animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon and Title */}
@@ -60,7 +60,7 @@ const Skills = () => {
                 <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                   <category.icon size={28} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white">
                   {category.title}
                 </h3>
               </div>
@@ -70,7 +70,7 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="bg-white/60 backdrop-blur-sm rounded-xl px-4 py-3 text-center font-medium text-slate-700 transition-all duration-300 hover:bg-white/80 hover:scale-105 hover:shadow-md"
+                    className="bg-white/60 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 backdrop-blur-sm rounded-xl px-4 py-3 text-center font-medium text-slate-700 dark:text-gray-200 transition-all duration-300 hover:bg-white/80 hover:scale-105 hover:shadow-md"
                   >
                     {skill}
                   </div>
