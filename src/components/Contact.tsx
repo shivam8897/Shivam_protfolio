@@ -49,7 +49,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <section id="contact" className="section-padding bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -60,11 +60,11 @@ const Contact = () => {
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 dark:text-gray-400 max-w-2xl mx-auto">
             Ready to collaborate on your next data engineering project? Let's connect!
           </p>
         </div>
@@ -78,14 +78,14 @@ const Contact = () => {
                 <a
                   key={index}
                   href={info.href}
-                  className="flex flex-col items-center gap-4 p-6 bg-white/15 backdrop-blur-lg border border-white/30 rounded-2xl card-hover group shadow-xl text-center"
+                  className="flex flex-col items-center gap-4 p-6 bg-white/15 dark:bg-white/10 backdrop-blur-lg border border-white/30 dark:border-white/20 rounded-2xl card-hover group shadow-xl text-center hover:bg-white/25 dark:hover:bg-white/15 transition-colors duration-300"
                 >
                   <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <info.icon size={28} className="text-white" />
                   </div>
                   <div>
                     <div className="font-semibold text-white mb-2 text-lg">{info.title}</div>
-                    <div className="text-slate-300">{info.value}</div>
+                    <div className="text-slate-300 dark:text-gray-300">{info.value}</div>
                   </div>
                 </a>
               ))}

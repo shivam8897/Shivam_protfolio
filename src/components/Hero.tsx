@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-accent-700 pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-accent-700 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 pt-20"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
