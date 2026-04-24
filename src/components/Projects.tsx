@@ -1,6 +1,7 @@
 'use client'
 
-import { ExternalLink, Github, TrendingUp } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { ExternalLink, Github, TrendingUp, X } from 'lucide-react'
 
 const Projects = () => {
   const projects = [
@@ -35,6 +36,16 @@ const Projects = () => {
       gradient: "from-green-500 to-emerald-500"
     }
   ]
+
+  const [selected, setSelected] = useState<number | null>(null)
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelected(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900">
@@ -99,7 +110,10 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <button className="flex-1 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => setSelected(index)}
+                    className="flex-1 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                  >
                     <ExternalLink size={16} />
                     View Details
                   </button>
@@ -112,6 +126,48 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selected !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          onClick={() => setSelected(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="max-w-3xl w-full bg-white dark:bg-gray-800 rounded-2xl p-6 relative mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-4 right-4 p-2 rounded-md text-slate-600 hover:text-slate-800 dark:text-gray-300"
+              onClick={() => setSelected(null)}
+              aria-label="Close details"
+            >
+              <X size={18} />
+            </button>
+
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">{projects[selected].title}</h3>
+            <p className="text-slate-600 dark:text-gray-300 mb-4">{projects[selected].description}</p>
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              {projects[selected].metrics.map((m, i) => (
+                <div key={i} className="p-3 rounded-md bg-gray-50 dark:bg-gray-700">
+                  <div className="text-sm text-gray-500 dark:text-gray-200">{m.label}</div>
+                  <div className="font-semibold text-lg">{m.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {projects[selected].tags.map((t, ti) => (
+                <span key={ti} className="px-3 py-1 bg-primary-100 dark:bg-gray-700 rounded-full text-sm">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   )
 }
