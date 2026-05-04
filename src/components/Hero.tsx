@@ -14,7 +14,7 @@ import {
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const fullText =
-    "Transforming raw data into actionable insights with 4+ years of expertise in PL/SQL development, ETL processes, and cloud-scale database optimization";
+    "Building production-grade data pipelines and cloud-native platforms that process millions of records daily — 5+ years across banking, telecom, and enterprise data engineering.";
 
   useEffect(() => {
     let index = 0;
@@ -132,30 +132,22 @@ const Hero = () => {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
-              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div className="text-3xl font-bold text-white drop-shadow-lg">
-                  50%
-                </div>
-                <div className="text-white font-medium drop-shadow-lg">
-                  Faster Queries
-                </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-3xl mx-auto">
+              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-5 card-hover shadow-xl">
+                <div className="text-3xl font-bold text-white drop-shadow-lg">50%</div>
+                <div className="text-white/90 text-sm font-medium drop-shadow-lg">Faster Queries</div>
               </div>
-              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div className="text-3xl font-bold text-white drop-shadow-lg">
-                  30%
-                </div>
-                <div className="text-white font-medium drop-shadow-lg">
-                  System Efficiency
-                </div>
+              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-5 card-hover shadow-xl">
+                <div className="text-3xl font-bold text-white drop-shadow-lg">30%</div>
+                <div className="text-white/90 text-sm font-medium drop-shadow-lg">System Efficiency</div>
               </div>
-              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-6 card-hover shadow-xl">
-                <div className="text-3xl font-bold text-white drop-shadow-lg">
-                  4+
-                </div>
-                <div className="text-white font-medium drop-shadow-lg">
-                  Years Experience
-                </div>
+              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-5 card-hover shadow-xl">
+                <div className="text-3xl font-bold text-white drop-shadow-lg">5+</div>
+                <div className="text-white/90 text-sm font-medium drop-shadow-lg">Years Experience</div>
+              </div>
+              <div className="bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl p-5 card-hover shadow-xl">
+                <div className="text-3xl font-bold text-white drop-shadow-lg">5</div>
+                <div className="text-white/90 text-sm font-medium drop-shadow-lg">Projects Delivered</div>
               </div>
             </div>
 
@@ -175,10 +167,14 @@ const Hero = () => {
                 <Code size={20} />
                 View Projects
               </a>
-              <button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-white/20 inline-flex items-center gap-2">
+              <a
+                href="/Shivam_Dubey_Resume.pdf"
+                download
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-white/20 inline-flex items-center gap-2"
+              >
                 <Download size={20} />
                 Download CV
-              </button>
+              </a>
             </div>
 
             {/* Social Links */}

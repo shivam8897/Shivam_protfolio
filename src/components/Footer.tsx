@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container-custom">
         <div className="text-center">
           <p className="flex items-center justify-center gap-2">
-            © 2024 Shivam Dubey. Made with 
+            © 2026 Shivam Dubey. Made with
             <Heart size={16} className="text-red-500 animate-pulse" />
             using Next.js & Tailwind CSS
           </p>

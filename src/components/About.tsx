@@ -27,10 +27,10 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose prose-lg text-slate-600 dark:text-gray-300">
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Data Engineer with <span className="font-semibold text-accent-600 dark:text-accent-400">4 years of experience</span> in PL/SQL development, ETL processes, and database optimization. Skilled in SQL, Python, PySpark, and AWS (S3, RDS, Redshift) with hands-on expertise in building and managing scalable data pipelines using Apache Airflow.
+                Senior Data Engineer with <span className="font-semibold text-accent-600 dark:text-accent-400">5+ years of production experience</span> architecting and operating large-scale data pipelines across banking, telecom, and cloud platforms. Deep expertise in PL/SQL, Python, PySpark, and AWS — owning the full data lifecycle from raw ingestion through to analytical reporting layers.
               </p>
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                Strong problem-solving and teamwork skills with a focus on delivering efficient, data-driven solutions. Currently working as an <span className="font-semibold text-accent-600 dark:text-accent-400">Application Development Analyst at Accenture</span>, where I've architected and optimized database solutions that reduced data retrieval time by 50%.
+                Currently a <span className="font-semibold text-accent-600 dark:text-accent-400">Senior Application Development Analyst at Accenture</span>, leading enterprise data platform delivery for global clients including TSB Banco Sabadell and National Broadband Network. Proven track record of cutting query latency by 50%, reducing ETL runtimes from hours to minutes, and replacing fragile legacy systems with resilient, cost-optimised cloud architectures.
               </p>
             </div>
 
@@ -38,11 +38,19 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-center card-hover shadow-md dark:shadow-gray-900">
                 <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">50%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Query Performance</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Query Latency Reduced</div>
               </div>
               <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-center card-hover shadow-md dark:shadow-gray-900">
-                <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">30%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">System Efficiency</div>
+                <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">60%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Cloud Cost Savings</div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-center card-hover shadow-md dark:shadow-gray-900">
+                <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">5</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Projects Delivered</div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-center card-hover shadow-md dark:shadow-gray-900">
+                <div className="text-2xl font-bold text-accent-600 dark:text-accent-400">6+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">AWS Services Mastered</div>
               </div>
             </div>
           </div>

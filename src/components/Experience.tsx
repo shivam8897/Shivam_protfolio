@@ -4,12 +4,12 @@ import { Calendar, MapPin, TrendingUp } from 'lucide-react'
 
 const Experience = () => {
   const achievements = [
-    "Architected and optimized PL/SQL packages, stored procedures, triggers, views, and external tables, reducing data retrieval time by 50% and improving overall system efficiency by 30%",
-    "Streamlined SQL query performance for Oracle databases, achieving significant efficiency gains",
-    "Developed, tested, and deployed high-performing database solutions for large-scale enterprise applications",
-    "Conducted comprehensive system integration testing (SIT) and regression testing",
-    "Managed end-to-end JIRA processes and contributed to ETL processes",
-    "Mentored junior team members on PL/SQL best practices and database optimization techniques"
+    "Engineered PL/SQL packages, stored procedures, and triggers for TSB Banco Sabadell's capital & impairment platform — reduced data retrieval latency by 50% and improved system efficiency by 30% on a 100M+ row Oracle database",
+    "Architected medallion-layer ETL pipelines (Bronze→Silver→Gold) for securitization analytics, eliminating 3× redundant compute across 3 business units and achieving 15% improvement in data accuracy and query performance",
+    "Built cloud-native data platform on AWS (S3, Glue, Athena, RDS, EC2, CloudWatch) for National Broadband Network's ELMS — replaced legacy on-premise system, cut ETL runtime from 8 hours to 45 minutes, and reduced infrastructure cost by 60%",
+    "Replaced 20+ fragile cron-based ETL jobs with Apache Airflow DAGs featuring dependency tracking, automatic retries, and Slack alerting — reduced mean time to recovery from 4 hours to under 20 minutes",
+    "Designed and executed automated SIT and regression testing framework using Python and SoapUI — cut manual QA cycle from 5 days to 6 hours, achieving 94% automated bug detection rate across 3 major release cycles",
+    "Mentored 3 junior engineers on PL/SQL optimization, ETL design patterns, and AWS fundamentals; led internal knowledge-sharing sessions that reduced onboarding time by 40%"
   ]
 
   return (
@@ -30,7 +30,7 @@ const Experience = () => {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-2">
-                  Application Development Analyst
+                  Senior Application Development Analyst
                 </h3>
                 <div className="flex items-center gap-2 text-primary-600 dark:text-accent-400 font-semibold mb-4 md:mb-0">
                   <MapPin size={18} />
@@ -66,7 +66,7 @@ const Experience = () => {
                   <TrendingUp size={20} />
                   <span className="font-semibold">Experience</span>
                 </div>
-                <div className="text-2xl font-bold text-purple-800 dark:text-purple-300">4+</div>
+                <div className="text-2xl font-bold text-purple-800 dark:text-purple-300">5+</div>
                 <div className="text-sm text-purple-600 dark:text-purple-400">Years in Data</div>
               </div>
             </div>
