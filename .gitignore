@@ -27,3 +27,10 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Screenshots
+*.png
+*.jpg
