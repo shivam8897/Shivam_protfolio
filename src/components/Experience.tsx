@@ -1,93 +1,114 @@
 'use client'
 
-import { Calendar, MapPin, TrendingUp } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2 } from 'lucide-react'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
 
 const Experience = () => {
   const achievements = [
-    "Architected and optimized PL/SQL packages, stored procedures, triggers, views, and external tables, reducing data retrieval time by 50% and improving overall system efficiency by 30%",
-    "Streamlined SQL query performance for Oracle databases, achieving significant efficiency gains",
-    "Developed, tested, and deployed high-performing database solutions for large-scale enterprise applications",
-    "Conducted comprehensive system integration testing (SIT) and regression testing",
-    "Managed end-to-end JIRA processes and contributed to ETL processes",
-    "Mentored junior team members on PL/SQL best practices and database optimization techniques"
+    "Engineered PL/SQL packages, stored procedures, and triggers for TSB Banco Sabadell's capital & impairment platform — reduced data retrieval latency by 50% and improved system efficiency by 30% on a 100M+ row Oracle database",
+    "Architected medallion-layer ETL pipelines (Bronze→Silver→Gold) for securitization analytics, eliminating 3× redundant compute across 3 business units and achieving 15% improvement in data accuracy",
+    "Built cloud-native data platform on AWS (S3, Glue, Athena, RDS, EC2, CloudWatch) for National Broadband Network's ELMS — replaced legacy on-premise system, cut ETL runtime from 8 hours to 45 minutes, reduced infrastructure cost by 60%",
+    "Replaced 20+ fragile cron-based ETL jobs with Apache Airflow DAGs featuring dependency tracking, automatic retries, and Slack alerting — reduced mean time to recovery from 4 hours to under 20 minutes",
+    "Designed automated SIT and regression testing framework using Python and SoapUI — cut manual QA cycle from 5 days to 6 hours, achieving 94% automated bug detection rate across 3 major release cycles",
+    "Mentored 3 junior engineers on PL/SQL optimisation, ETL design patterns, and AWS fundamentals; led internal knowledge-sharing sessions that reduced onboarding time by 40%",
+  ]
+
+  const metrics = [
+    { value: '50%', label: 'Faster Retrieval', color: 'from-cyan-500 to-cyan-400' },
+    { value: '60%', label: 'Cost Reduced',     color: 'from-indigo-500 to-indigo-400' },
+    { value: '5+',  label: 'Years in Data',    color: 'from-violet-500 to-violet-400' },
   ]
 
   return (
-    <section id="experience" className="section-padding bg-white dark:bg-gray-950">
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
-            Experience
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Building scalable data solutions at enterprise level
-          </p>
-        </div>
+    <section id="experience" className="section-padding bg-[#050a12] relative overflow-hidden">
+      <div className="glow-orb w-96 h-96 bg-cyan-500/6 bottom-0 left-0 pointer-events-none" />
+
+      <div className="container-custom relative z-10">
+        {/* Header */}
+        <motion.div
+          initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="text-center mb-16"
+        >
+          <motion.p variants={fadeUp} className="section-label mb-3">02 / Experience</motion.p>
+          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Work <span className="gradient-text">History</span>
+          </motion.h2>
+        </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="glass-effect dark:bg-gray-800/50 dark:backdrop-blur-xl dark:border-gray-700 rounded-3xl p-8 md:p-12 card-hover">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+          {/* Timeline card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            className="glass-card rounded-3xl p-8 md:p-12 border border-cyan-400/10 hover:border-cyan-400/20 transition-all duration-500"
+          >
+            {/* Job header */}
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-2">
-                  Application Development Analyst
-                </h3>
-                <div className="flex items-center gap-2 text-primary-600 dark:text-accent-400 font-semibold mb-4 md:mb-0">
-                  <MapPin size={18} />
-                  Accenture, Hyderabad
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 border border-cyan-400/20 flex items-center justify-center">
+                    <Briefcase size={18} className="text-cyan-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">
+                    Senior Application Development Analyst
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 text-cyan-400 font-semibold ml-13 ml-0">
+                  <MapPin size={15} />
+                  <span>Accenture, Hyderabad</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-slate-600 dark:text-gray-400 font-medium">
-                <Calendar size={18} />
-                July 2021 – Present
+              <div className="flex items-center gap-2 text-slate-500 font-mono text-sm whitespace-nowrap">
+                <Calendar size={14} />
+                July 2021 — Present
               </div>
             </div>
 
-            {/* Key Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-gradient-to-r from-green-50 dark:from-green-900/30 to-emerald-50 dark:to-emerald-900/30 rounded-xl p-4 border border-green-200 dark:border-green-800">
-                <div className="flex items-center gap-2 text-green-700 dark:text-green-400 mb-2">
-                  <TrendingUp size={20} />
-                  <span className="font-semibold">Performance</span>
+            {/* Metric pills */}
+            <div className="grid grid-cols-3 gap-4 mb-10">
+              {metrics.map((m, i) => (
+                <div key={i} className="rounded-xl p-4 bg-white/[0.03] border border-white/5 text-center">
+                  <div className={`text-2xl font-bold bg-gradient-to-r ${m.color} bg-clip-text text-transparent`}>
+                    {m.value}
+                  </div>
+                  <div className="text-xs text-slate-500 font-mono mt-1">{m.label}</div>
                 </div>
-                <div className="text-2xl font-bold text-green-800">50%</div>
-                <div className="text-sm text-green-600">Faster Data Retrieval</div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-50 dark:from-blue-900/30 to-cyan-50 dark:to-cyan-900/30 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
-                <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 mb-2">
-                  <TrendingUp size={20} />
-                  <span className="font-semibold">Efficiency</span>
-                </div>
-                <div className="text-2xl font-bold text-blue-800 dark:text-blue-300">30%</div>
-                <div className="text-sm text-blue-600 dark:text-blue-400">System Improvement</div>
-              </div>
-              <div className="bg-gradient-to-r from-purple-50 dark:from-purple-900/30 to-violet-50 dark:to-violet-900/30 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
-                <div className="flex items-center gap-2 text-purple-700 dark:text-purple-400 mb-2">
-                  <TrendingUp size={20} />
-                  <span className="font-semibold">Experience</span>
-                </div>
-                <div className="text-2xl font-bold text-purple-800 dark:text-purple-300">4+</div>
-                <div className="text-sm text-purple-600 dark:text-purple-400">Years in Data</div>
-              </div>
+              ))}
             </div>
 
             {/* Achievements */}
             <div>
-              <h4 className="text-xl font-semibold text-slate-800 dark:text-white mb-6">Key Achievements</h4>
-              <div className="space-y-4">
-                {achievements.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+              <div className="flex items-center gap-2 text-slate-400 text-sm font-mono mb-5">
+                <TrendingUp size={14} className="text-cyan-400" />
+                Key Achievements
+              </div>
+              <div className="space-y-5">
+                {achievements.map((a, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.5 }}
+                    className="flex items-start gap-4 group"
                   >
-                    <div className="w-2 h-2 bg-primary-500 dark:bg-accent-400 rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="text-slate-600 dark:text-gray-300 leading-relaxed">{achievement}</p>
-                  </div>
+                    <CheckCircle2 size={17} className="text-cyan-500 mt-0.5 flex-shrink-0 group-hover:text-cyan-400 transition-colors" />
+                    <p className="text-slate-400 leading-relaxed text-sm group-hover:text-slate-300 transition-colors">
+                      {a}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,115 +1,97 @@
 'use client'
 
-import { Mail, Phone, MapPin, Linkedin, Github, Send } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight } from 'lucide-react'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.6 } },
+}
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "shivamdubey012@gmail.com",
-      href: "mailto:shivamdubey012@gmail.com",
-      color: "from-red-500 to-pink-500"
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+91-8897636093",
-      href: "tel:+918897636093",
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "Hyderabad, 502319",
-      href: "#",
-      color: "from-blue-500 to-cyan-500"
-    }
+  const contacts = [
+    { icon: Mail,   title: 'Email',    value: 'shivamdubey012@gmail.com', href: 'mailto:shivamdubey012@gmail.com', color: '#22d3ee' },
+    { icon: Phone,  title: 'Phone',    value: '+91-8897636093',            href: 'tel:+918897636093',              color: '#818cf8' },
+    { icon: MapPin, title: 'Location', value: 'Hyderabad, India',          href: '#',                              color: '#34d399' },
   ]
 
-  const socialLinks = [
-    {
-      icon: Linkedin,
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/shivam-dubey012/",
-      color: "hover:bg-blue-600"
-    },
-    {
-      icon: Github,
-      name: "GitHub",
-      href: "https://github.com/shivam8897",
-      color: "hover:bg-gray-800"
-    },
-    {
-      icon: Mail,
-      name: "Email",
-      href: "mailto:shivamdubey012@gmail.com",
-      color: "hover:bg-red-600"
-    }
+  const socials = [
+    { icon: Linkedin, name: 'LinkedIn', href: 'https://www.linkedin.com/in/shivam-dubey012/', color: '#0077b5' },
+    { icon: Github,   name: 'GitHub',   href: 'https://github.com/shivam8897',                color: '#e5e7eb' },
+    { icon: Mail,     name: 'Email',    href: 'mailto:shivamdubey012@gmail.com',              color: '#22d3ee' },
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <section id="contact" className="section-padding bg-[#050a12] relative overflow-hidden">
+      <div className="glow-orb w-[500px] h-[500px] bg-cyan-500/8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
 
       <div className="container-custom relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent">
-              Get In Touch
-            </span>
-          </h2>
-          <p className="text-xl text-slate-300 dark:text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate on your next data engineering project? Let's connect!
-          </p>
-        </div>
+        <motion.div
+          initial="hidden" whileInView="show" viewport={{ once: true }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="text-center mb-16"
+        >
+          <motion.p variants={fadeUp} className="section-label mb-3">07 / Contact</motion.p>
+          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Let's <span className="gradient-text">Connect</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-slate-400 max-w-xl mx-auto">
+            Open to Senior Data Engineer roles, consulting, or collaborations. Let's build something remarkable.
+          </motion.p>
+        </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Contact Information - Centered */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-white text-center">Contact Information</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {contactInfo.map((info, index) => (
-                <a
-                  key={index}
-                  href={info.href}
-                  className="flex flex-col items-center gap-4 p-6 bg-white/15 dark:bg-white/10 backdrop-blur-lg border border-white/30 dark:border-white/20 rounded-2xl card-hover group shadow-xl text-center hover:bg-white/25 dark:hover:bg-white/15 transition-colors duration-300"
+          {/* Contact cards */}
+          <motion.div
+            initial="hidden" whileInView="show" viewport={{ once: true }}
+            variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+            className="grid md:grid-cols-3 gap-5 mb-10"
+          >
+            {contacts.map((c, i) => (
+              <motion.a
+                key={i}
+                variants={fadeUp}
+                href={c.href}
+                className="glass-card-hover rounded-2xl p-6 flex flex-col items-center text-center group"
+              >
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                  style={{ background: `${c.color}18`, border: `1px solid ${c.color}30` }}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <info.icon size={28} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-white mb-2 text-lg">{info.title}</div>
-                    <div className="text-slate-300 dark:text-gray-300">{info.value}</div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
+                  <c.icon size={24} style={{ color: c.color }} />
+                </div>
+                <div className="text-xs text-slate-500 font-mono mb-1">{c.title}</div>
+                <div className="text-slate-200 font-medium text-sm">{c.value}</div>
+              </motion.a>
+            ))}
+          </motion.div>
 
-          {/* Social Links - Centered */}
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-8 text-white">Connect With Me</h3>
-            <div className="flex justify-center gap-6 flex-wrap">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
+          {/* Social links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card rounded-2xl p-8 text-center"
+          >
+            <p className="text-slate-500 font-mono text-sm mb-6">// find_me_on</p>
+            <div className="flex justify-center gap-4 flex-wrap">
+              {socials.map((s, i) => (
+                <motion.a
+                  key={i}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 px-8 py-4 bg-white/15 backdrop-blur-lg border border-white/30 rounded-xl transition-all duration-300 hover:scale-105 ${social.color} group shadow-xl`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="flex items-center gap-3 px-6 py-3 rounded-xl border border-white/8 bg-white/3 hover:border-cyan-400/30 hover:bg-cyan-400/5 transition-all duration-300 text-slate-300 hover:text-white"
                 >
-                  <social.icon size={24} className="text-white" />
-                  <span className="font-medium text-white text-lg">{social.name}</span>
-                </a>
+                  <s.icon size={20} />
+                  <span className="font-medium">{s.name}</span>
+                  <ArrowUpRight size={14} className="text-slate-600" />
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
